@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import axios from "axios";
 import "./index.css";
@@ -21,7 +22,10 @@ function App() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/students", student);
+      await axios.post(
+        "http://localhost:5000/api/students",
+        student
+      );
 
       alert("Student added successfully!");
 
@@ -31,55 +35,83 @@ function App() {
         course: "",
         age: ""
       });
-    } catch (error) {
-      console.log(error);
-      alert("Failed to add student");
-    }
+     } catch (error) {
+  console.log("ERROR:", error);
+  console.log("SERVER RESPONSE:", error.response?.data);
+
+  alert(
+    error.response?.data?.message ||
+    "Failed to add student"
+  );
+}
   };
 
   return (
-    <div className="container">
-      <h1>Student Management System</h1>
+    <div className="app">
+      <div className="card">
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Name"
-          value={student.name}
-          onChange={handleChange}
-          required
-        />
+        <div className="header">
+          <div className="icon">🎓</div>
+          <h1>Student Management</h1>
+          <p>Add a new student to the system</p>
+        </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          value={student.email}
-          onChange={handleChange}
-          required
-        />
+        <form onSubmit={handleSubmit}>
 
-        <input
-          type="text"
-          name="course"
-          placeholder="Enter Course"
-          value={student.course}
-          onChange={handleChange}
-          required
-        />
+          <div className="input-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter student's name"
+              value={student.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="number"
-          name="age"
-          placeholder="Enter Age"
-          value={student.age}
-          onChange={handleChange}
-          required
-        />
+          <div className="input-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="student@example.com"
+              value={student.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Add Student</button>
-      </form>
+          <div className="input-group">
+            <label>Course</label>
+            <input
+              type="text"
+              name="course"
+              placeholder="e.g. Information Technology"
+              value={student.course}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Age</label>
+            <input
+              type="number"
+              name="age"
+              placeholder="Enter age"
+              value={student.age}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit">
+            Add Student
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 }
