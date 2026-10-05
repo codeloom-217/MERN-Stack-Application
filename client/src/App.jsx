@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
 
-const API_URL = "http://localhost:5000/api/students";
+const API_URL =
+  "https://mern-stack-application-hen1.onrender.com/api/students";
 
 function App() {
   const [students, setStudents] = useState([]);
