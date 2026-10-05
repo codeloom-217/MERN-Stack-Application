@@ -13,37 +13,28 @@ body,
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #eef2f7;
-  color: #1f2937;
+  background: #f4f6fa;
+  color: #172033;
 }
 
 .app {
   min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
-.card {
-  width: 100%;
-  max-width: 500px;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
-}
 
-.header {
+/* HEADER */
+
+.page-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .icon {
   width: 65px;
   height: 65px;
-  margin: 0 auto 18px;
+
+  margin: 0 auto 15px;
 
   display: flex;
   align-items: center;
@@ -55,100 +46,245 @@ body {
   font-size: 30px;
 }
 
-.header h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #172033;
+.page-header h1 {
+  font-size: 32px;
   margin-bottom: 8px;
 }
 
-.header p {
-  font-size: 15px;
+.page-header p {
   color: #667085;
 }
 
-.input-group {
+
+/* CARDS */
+
+.card {
   width: 100%;
-  margin-bottom: 20px;
+  max-width: 1000px;
+
+  margin: 0 auto 30px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 30px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.card h2 {
+  margin-bottom: 25px;
+}
+
+
+/* FORM */
+
+.form-card {
+  max-width: 600px;
+}
+
+.input-group {
+  margin-bottom: 18px;
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 8px;
+
+  margin-bottom: 7px;
 
   font-size: 14px;
   font-weight: 600;
+
   color: #344054;
 }
 
 .input-group input {
-  display: block;
   width: 100%;
-  height: 48px;
+  height: 46px;
 
-  padding: 0 15px;
+  padding: 0 14px;
 
   border: 1px solid #d0d5dd;
-  border-radius: 10px;
-
-  background: #ffffff;
+  border-radius: 9px;
 
   font-size: 15px;
-  color: #1d2939;
 
   outline: none;
-
-  transition: all 0.2s ease;
-}
-
-.input-group input::placeholder {
-  color: #98a2b3;
 }
 
 .input-group input:focus {
   border-color: #4f7cff;
+
   box-shadow: 0 0 0 3px rgba(79, 124, 255, 0.12);
 }
 
+
+/* BUTTONS */
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.form-buttons button {
+  flex: 1;
+}
+
 button {
-  width: 100%;
-  height: 48px;
-
-  margin-top: 8px;
-
   border: none;
-  border-radius: 10px;
+  border-radius: 9px;
 
-  background: #4f7cff;
-  color: white;
+  height: 44px;
 
-  font-size: 16px;
+  padding: 0 18px;
+
+  font-size: 15px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  background: #4f7cff;
+  color: white;
+
+  transition: 0.2s;
 }
 
 button:hover {
-  background: #3b67e8;
-  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
-button:active {
-  transform: translateY(0);
+.cancel-button {
+  background: #98a2b3;
 }
 
-@media (max-width: 600px) {
+
+/* STUDENT LIST */
+
+.students-card {
+  overflow: hidden;
+}
+
+.students-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.students-header p {
+  color: #667085;
+  font-size: 14px;
+}
+
+
+/* TABLE */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  margin-top: 10px;
+}
+
+th {
+  text-align: left;
+
+  padding: 14px 12px;
+
+  background: #f8fafc;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+}
+
+td {
+  padding: 16px 12px;
+
+  border-bottom: 1px solid #eaecf0;
+
+  font-size: 14px;
+
+  color: #475467;
+}
+
+.student-name {
+  font-weight: 600;
+  color: #172033;
+}
+
+
+/* ACTIONS */
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  background: #4f7cff;
+  height: 36px;
+  font-size: 13px;
+}
+
+.delete-button {
+  background: #e5484d;
+  height: 36px;
+  font-size: 13px;
+}
+
+
+/* EMPTY STATE */
+
+.empty {
+  text-align: center;
+
+  padding: 50px 20px;
+
+  color: #667085;
+}
+
+.empty-icon {
+  font-size: 40px;
+
+  margin-bottom: 12px;
+}
+
+.empty h3 {
+  color: #344054;
+
+  margin-bottom: 6px;
+}
+
+.empty p {
+  font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
   .app {
-    padding: 20px;
+    padding: 30px 15px;
   }
 
   .card {
-    padding: 30px 22px;
+    padding: 20px;
   }
 
-  .header h1 {
+  .page-header h1 {
     font-size: 25px;
   }
+
+  table {
+    min-width: 700px;
+  }
+
 }
